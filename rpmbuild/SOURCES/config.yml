@@ -1,7 +1,7 @@
 icon: smallicon.png
 logo: logo.png
 logo_size: 320x240
-menu_title: RHCI Foundation Instructor Toolkit
+menu_title: Fedora Remix Toolkit
 menu_help: xdg-open /home/kiosk/Foundation/FoundationTarball.pdf &
 num_columns: 3  # Define number of columns for the main menu
 
@@ -10,15 +10,15 @@ menu_items:
 ## Initial Foundation0 System Setup Tasks
   - name: Initial Setup
     column: 1  
-    submenu_columns: 2 
+    submenu_columns: 3 
     button_info: |
       This takes you to tasks for completing the classroom setup.
     items:
-      - name: Push Course All
+      - name: Update Fedora System Packages
         column: 1  # This submenu item will be in the first column
-        command: rht-pushcourse all
+        command: sudo /opt/FedoraRemix/scripts/update_pkgs.sh
         button_info: |
-          This will execute the "rht-pushcourse" all command
+          Update Fedora System Packages
       - name: Foundation0 Finish
         column: 1  
         command: rht-f0finish
