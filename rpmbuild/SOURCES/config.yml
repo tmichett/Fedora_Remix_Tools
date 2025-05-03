@@ -14,39 +14,39 @@ menu_items:
     button_info: |
       This takes you to tasks for completing the basic setup of the Fedora Remix OS. It will update and configure root-level functions and OS and System-Level functions.
     items:
-      - name: Update Fedora System Packages (reboots when done)
+      - name: Update Packages (reboots)
         column: 1  # This submenu item will be in the first column
         command: sudo /opt/FedoraRemix/scripts/update_pkgs.sh
         button_info: |
           Update Fedora System Packages Using DNF and reboots when completed.
       - name: Create Root Password and Allow SSH
         column: 1  
-        command: 
+        command: echo "Placeholder"
         button_info: |
           This will create a root password and allow SSH for the root user.
       - name: Customize GNOME for root user
         column: 1  
-        command: 
+        command: echo "Placeholder"
         button_info: |
           Customizes GNOME for the root user (enables extensions)
       - name: Customize Grub Bootloader
         column: 2
-        command: 
+        command: echo "Placeholder"
         button_info: |
           This will customize the GRUB boot loader menu and style.
-      - name: Install GNOME Extensions
+      - name: Install GNOME Extensions (reboots)
         column: 2
-        command: 
+        command: echo "Placeholder"
         button_info: |
-          This button installs GNOME extensions.
+          This button installs GNOME extensions. It reboots when completed
       - name: Setup PXE Boot Server and Services
         column: 3
-        command: 
+        command: echo "Placeholder"
         button_info: |
           This will setup PXE-Boot Services for Live booting Fedora Remix
       - name: Remove Fedora Remix from Auto-Start
         column: 3
-        command: 
+        command: echo "Placeholder"
         button_info: |
           This will remove the Fedora Remix Tools from Autostart.
 
@@ -56,54 +56,38 @@ menu_items:
     column: 2
     items:
       - name: Create User SSH Key and Prepare for Ansible
-        command: 
+        command: echo "Placeholder"
         button_info: |
           Creates SSH key for current user and prepares system for Ansible use.
       - name: Update Sudoers file for User
-        command: 
+        command: echo "Placeholder"
         button_info: |
           Updates Sudoers file for current user to not require a password.
       - name: Customize GNOME for User
         column: 2
-        command: 
+        command: echo "Placeholder"
         button_info: |
           Customizes GNOME for current user.
-      - name: Customize Ansible User
+      - name: Customize Ansible User Password
         column: 3
-        command: 
+        command: echo "Placeholder"
         button_info: |
           Sets Ansible User Password
 
-### Foundation0 System Tasks
-  - name: Foundation0 System Setup
-    column: 2
-    submenu_columns: 3
-    items:
-      - name: Deploy Calibre
-        column: 1
-        command: cd /home/kiosk/Foundation/Ansible/Foundation && ansible-playbook Deploy_Calibre.yml
-        button_info: |
-          This will deploy Calibre to Foundation0.
-      - name: Fix Bastion DNS
-        column: 2
-        command: echo "Fixes Bastion DNS"
-      - name: Fix Bastion Network
-        column: 3
-        command: echo "Fixes Bastion Network"
-        
-  - name: FoundationX System Setup
-    column: 1
-    items:
-      - name: Deploy Calibre
-        column: 1
-        command: cd /home/kiosk/Foundation/Ansible/Foundation && ansible-playbook Deploy_Calibre.yml -e "variable_host=Foundation"
-        button_info: |
-          This will deploy Calibre to Foundation0.
-
-  - name: Student Systems Setup
-    column: 3  
+### System Maintenance and Repair Tasks
+  - name: Maintenance and Tools Menu
+    column: 3
+    submenu_columns: 2
     button_info: |
-      This takes you to tasks for completing setup of student VMs (including Workstation)
+      This menu has various utilities to 
     items:
-      - name: Fix Workstation MTU
-        command: ./greeting.sh
+      - name: Fix Python Kickstart
+        column: 1
+        command: echo "Placeholder"
+        button_info: |
+          This will fix an issue with PyKickstart and URL preventing livecd-creator from working.
+      - name: Create Fingerprint Services
+        column: 2
+        command: echo "Placeholder"
+        button_info: |
+          This will enable the fingerprint services for users on selected Lenovo Thinkpads and Synaptic devices.
