@@ -30,4 +30,4 @@ jobs:
         run: bash ./RPM_Build_Clean.sh && ./RPM_Build.sh
 
       - name: Commit and Add Book
-        run: git config --global user.email "tmichett@redhat.com" && git config --global user.name "Travis Michette" && git add *.rpm && git commit -m "Added RPM" && git push
+        run: git config --global user.email "tmichett@redhat.com" && git config --global user.name "Travis Michette" && git add ~/rpmbuild/RPMS/noarch/*.rpm && git commit -m "Added RPM" && git push
