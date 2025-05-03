@@ -58,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,liveuser,liveuser)/home/liveuser/Desktop/Fedora_Remix_Tools.desktop
 
 %changelog
-* Sat May 3, 2025 Fedora Remix Tools Build <tmichett@redhat.com> - 1.0-0
+* Sat May 3 2025 Fedora Remix Tools Build <tmichett@redhat.com> - 1.0-0
 - Initial package build
