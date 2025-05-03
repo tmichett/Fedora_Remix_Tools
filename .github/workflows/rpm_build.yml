@@ -9,7 +9,7 @@ name: Build RPM
   # This is a reusable workflow
 #  workflow_dispatch:
 on:
-  push:
+  merge:
     branches:
       - main
 
