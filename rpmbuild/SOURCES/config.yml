@@ -1,0 +1,90 @@
+icon: smallicon.png
+logo: logo.png
+logo_size: 320x240
+menu_title: RHCI Foundation Instructor Toolkit
+menu_help: xdg-open /home/kiosk/Foundation/FoundationTarball.pdf &
+num_columns: 3  # Define number of columns for the main menu
+
+menu_items:
+
+## Initial Foundation0 System Setup Tasks
+  - name: Initial Setup
+    column: 1  
+    submenu_columns: 2 
+    button_info: |
+      This takes you to tasks for completing the classroom setup.
+    items:
+      - name: Push Course All
+        column: 1  # This submenu item will be in the first column
+        command: rht-pushcourse all
+        button_info: |
+          This will execute the "rht-pushcourse" all command
+      - name: Foundation0 Finish
+        column: 1  
+        command: rht-f0finish
+        button_info: |
+          This will execute the "rht-f0finish" all command
+      - name: Setup Foundation Tools Tarball
+        column: 1  
+        command: cd /home/kiosk && tar -xvf Foundation*.tgz
+        button_info: |
+          This will extract the Foundation tools (scripts and playbooks)
+      - name: Setup System for Ansible and AAP
+        column: 1
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ./Setup_for_AAP.sh
+        button_info: |
+          This will extract the Ansible EE and install collections on the system to use AAP 2.x
+      - name: Create Foundation0 Ansible Vars
+        column: 2
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ./Create_Foundation_Vars.sh
+        button_info: |
+          This will ask the number of system and create the Foundation0 Vars needed by Ansible.
+      - name: Setup Network
+        column: 2
+        command: echo "Sets up network configuration"
+        
+  - name: Perform RHCI Foundation Testing
+    column: 1
+    items:
+      - name: Test Foundation0
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ./Verify_Foundation0_Systems.sh
+        button_info: |
+          Runs tests on Foundation0 including rht-verify-foundation0
+      - name: Test Installation
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ./Test_VMs.sh
+        button_info: |
+          Runs the Test_VMs.sh script to test Foundation0 and the VMs (including MTU).
+
+### Foundation0 System Tasks
+  - name: Foundation0 System Setup
+    column: 2
+    submenu_columns: 3
+    items:
+      - name: Deploy Calibre
+        column: 1
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ansible-playbook Deploy_Calibre.yml
+        button_info: |
+          This will deploy Calibre to Foundation0.
+      - name: Fix Bastion DNS
+        column: 2
+        command: echo "Fixes Bastion DNS"
+      - name: Fix Bastion Network
+        column: 3
+        command: echo "Fixes Bastion Network"
+        
+  - name: FoundationX System Setup
+    column: 2
+    items:
+      - name: Deploy Calibre
+        column: 1
+        command: cd /home/kiosk/Foundation/Ansible/Foundation && ansible-playbook Deploy_Calibre.yml -e "variable_host=Foundation"
+        button_info: |
+          This will deploy Calibre to Foundation0.
+
+  - name: Student Systems Setup
+    column: 3  
+    button_info: |
+      This takes you to tasks for completing setup of student VMs (including Workstation)
+    items:
+      - name: Fix Workstation MTU
+        command: ./greeting.sh
