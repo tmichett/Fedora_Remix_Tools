@@ -29,5 +29,12 @@ jobs:
       - name: Create and Build RPM
         run: bash ./RPM_Build_Clean.sh && ./RPM_Build.sh
 
-      - name: Commit and Add Book
-        run: git config --global user.email "tmichett@redhat.com" && git config --global user.name "Travis Michette" && git add ~/rpmbuild/RPMS/noarch/*.rpm && git commit -m "Added RPM" && git push
+      - name: Create Release Draft
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }} # Use the tag name that triggered the workflow
+          draft: true # Create the release as a draft
+          files: |
+            ~/rpmbuild/RPMS/noarch/*.rpm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
