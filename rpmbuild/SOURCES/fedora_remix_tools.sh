@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /opt/rhci_foundation
+cd /opt/FedoraRemixTools
 python menu.py &
 exit

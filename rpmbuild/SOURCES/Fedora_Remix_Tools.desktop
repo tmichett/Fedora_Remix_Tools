@@ -3,7 +3,8 @@
 Name=Fedora Remix Tools
 GenericName=Fedora Remix Tools
 X-GNOME-FullName=Fedora Remix Tools
-Exec=python /opt/FedoraRemixTools/menu.py /opt/FedoraRemixTools/config.yml
+#Exec=python /opt/FedoraRemixTools/menu.py /opt/FedoraRemixTools/config.yml
+Exec=/opt/FedoraRemixTools/fedora_remix_tools.sh
 Terminal=false
 Icon=/opt/FedoraRemixTools/smallicon.png
 Type=Application
