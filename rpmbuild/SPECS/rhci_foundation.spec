@@ -34,7 +34,7 @@ cp -p %{_sourcedir}/config.yml $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/menu.py $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/logo.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/smallicon.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p  %{_sourcedir}/start_fedora_remix_tools_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p  %{_sourcedir}/start_fedora_remix_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 
 
 # Copy desktop file
