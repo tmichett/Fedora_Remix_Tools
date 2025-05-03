@@ -34,7 +34,7 @@ cp -p %{_sourcedir}/config.yml $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/menu.py $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/logo.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 cp -p %{_sourcedir}/smallicon.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p  %{_sourcedir}/start_fedora_remix_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p  %{_sourcedir}/fedora_remix_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 
 
 # Copy desktop file
@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 /opt/FedoraRemixTools/menu.py
 /opt/FedoraRemixTools/logo.png
 /opt/FedoraRemixTools/smallicon.png
-%attr(0755,root,root) /opt/FedoraRemixTools/start_rhci_tools.sh
+%attr(0755,root,root) /opt/FedoraRemixTools/fedora_remix_tools.sh
 %attr(0755,root,root) /usr/share/applications/Fedora_Remix_Tools.desktop
 %attr(0755,root,root) /usr/share/gnome/autostart/Fedora_Remix_Tools.desktop
 %attr(0755,liveuser,liveuser)/home/liveuser/Desktop/Fedora_Remix_Tools.desktop
