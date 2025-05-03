@@ -9,4 +9,4 @@ Icon=/opt/FedoraRemixTools/smallicon.png
 Type=Application
 StartupNotify=true
 Categories=GTK;GNOME;Education;System;Utility;
-Name[en_US]=RHCI Instructor Tools
+Name[en_US]=Fedora Remix Tools

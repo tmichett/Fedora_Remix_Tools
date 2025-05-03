@@ -1,6 +1,6 @@
 %define name fedora_remix_tools
 %define version 1.0
-%define release 0
+%define release 1
 %define buildroot %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Summary: Fedora Remix Tools Application
