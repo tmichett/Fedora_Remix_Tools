@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Fedora Remix Tools
+GenericName=Fedora Remix Tools
+X-GNOME-FullName=Fedora Remix Tools
+Exec=/opt/FedoraRemixTools/fedora_remix_tools.sh
+Terminal=false
+Icon=/opt/FedoraRemixTools/smallicon.png
+Type=Application
+StartupNotify=true
+Categories=GTK;GNOME;Education;System;Utility;
+Name[en_US]=RHCI Instructor Tools

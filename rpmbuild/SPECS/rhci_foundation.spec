@@ -1,9 +1,9 @@
-%define name rhci_instructor_tools
+%define name fedora_remix_tools
 %define version 1.0
-%define release 5
+%define release 0
 %define buildroot %{_tmppath}/%{name}-%{version}-%{release}-root
 
-Summary: RHCI Foundation Instructor Tools Application
+Summary: Fedora Remix Tools Application
 Name: %{name}
 Version: %{version}
 Release: %{release}
@@ -14,7 +14,7 @@ BuildRoot: %{buildroot}
 Requires: python3
 
 %description
-RHCI Foundation Instructor Tools Application
+Fedora Remix Tools Application
 
 %prep
 # No preparation needed for this simple package
@@ -24,39 +24,39 @@ RHCI Foundation Instructor Tools Application
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/opt/rhci_foundation
+mkdir -p $RPM_BUILD_ROOT/opt/FedoraRemixTools
 mkdir -p $RPM_BUILD_ROOT/usr/share/applications
-mkdir -p $RPM_BUILD_ROOT/home/kiosk/Desktop/
+mkdir -p $RPM_BUILD_ROOT/home/liveuser/Desktop/
 mkdir -p $RPM_BUILD_ROOT/usr/share/gnome/autostart
 
 # Copy application files to the buildroot
-cp -p %{_sourcedir}/config.yml $RPM_BUILD_ROOT/opt/rhci_foundation/
-cp -p %{_sourcedir}/menu.py $RPM_BUILD_ROOT/opt/rhci_foundation/
-cp -p %{_sourcedir}/logo.png $RPM_BUILD_ROOT/opt/rhci_foundation/
-cp -p %{_sourcedir}/smallicon.png $RPM_BUILD_ROOT/opt/rhci_foundation/
-cp -p  %{_sourcedir}/start_rhci_tools.sh $RPM_BUILD_ROOT/opt/rhci_foundation/
+cp -p %{_sourcedir}/config.yml $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p %{_sourcedir}/menu.py $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p %{_sourcedir}/logo.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p %{_sourcedir}/smallicon.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p  %{_sourcedir}/start_fedora_remix_tools_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 
 
 # Copy desktop file
-cp -p %{_sourcedir}/RHCI_Tools.desktop $RPM_BUILD_ROOT/usr/share/applications/
-cp -p %{_sourcedir}/RHCI_Tools.desktop $RPM_BUILD_ROOT/home/kiosk/Desktop/
-cp -p %{_sourcedir}/RHCI_Tools.desktop $RPM_BUILD_ROOT/usr/share/gnome/autostart
+cp -p %{_sourcedir}/Fedora_Remix_Tools.desktop $RPM_BUILD_ROOT/usr/share/applications/
+cp -p %{_sourcedir}/Fedora_Remix_Tools.desktop $RPM_BUILD_ROOT/home/liveuser/Desktop/
+cp -p %{_sourcedir}/Fedora_Remix_Tools.desktop $RPM_BUILD_ROOT/usr/share/gnome/autostart
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/opt/rhci_foundation/
-/opt/rhci_foundation/config.yml
-/opt/rhci_foundation/menu.py
-/opt/rhci_foundation/logo.png
-/opt/rhci_foundation/smallicon.png
-%attr(0755,root,root) /opt/rhci_foundation/start_rhci_tools.sh
-%attr(0755,root,root) /usr/share/applications/RHCI_Tools.desktop
-%attr(0755,root,root) /usr/share/gnome/autostart/RHCI_Tools.desktop
-%attr(0755,kiosk,kiosk)/home/kiosk/Desktop/RHCI_Tools.desktop
+/opt/FedoraRemixTools/
+/opt/FedoraRemixTools/config.yml
+/opt/FedoraRemixTools/menu.py
+/opt/FedoraRemixTools/logo.png
+/opt/FedoraRemixTools/smallicon.png
+%attr(0755,root,root) /opt/FedoraRemixTools/start_rhci_tools.sh
+%attr(0755,root,root) /usr/share/applications/Fedora_Remix_Tools.desktop
+%attr(0755,root,root) /usr/share/gnome/autostart/Fedora_Remix_Tools.desktop
+%attr(0755,liveuser,liveuser)/home/liveuser/Desktop/Fedora_Remix_Tools.desktop
 
 %changelog
-* Thu Apr 24 2025 Package Builder <builder@example.com> - 1.0-1
+* Sat May 3, 2025 Fedora Remix Tools Build <tmichett@redhat.com> - 1.0-0
 - Initial package build
