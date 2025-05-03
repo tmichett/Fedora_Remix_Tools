@@ -2,7 +2,7 @@ icon: smallicon.png
 logo: logo.png
 logo_size: 320x240
 menu_title: Fedora Remix Toolkit
-menu_help: xdg-open /home/kiosk/Foundation/FoundationTarball.pdf &
+menu_help: xdg-open FedoraRemixToolkit-Help.pdf &
 num_columns: 3  # Define number of columns for the main menu
 
 menu_items:
@@ -73,7 +73,7 @@ menu_items:
         command: echo "Fixes Bastion Network"
         
   - name: FoundationX System Setup
-    column: 2
+    column: 1
     items:
       - name: Deploy Calibre
         column: 1
