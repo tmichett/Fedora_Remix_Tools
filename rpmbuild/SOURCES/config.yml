@@ -19,13 +19,18 @@ menu_items:
         command: sudo /opt/FedoraRemix/scripts/update_pkgs.sh
         button_info: |
           Update Fedora System Packages Using DNF and reboots when completed.
-      - name: Create Root Password and Allow SSH
+      - name: Create Root Password/Allow SSH
         column: 1  
         command: echo "Placeholder"
         button_info: |
           This will create a root password and allow SSH for the root user.
-      - name: Customize GNOME for root user
+      - name: Create Root SSH Keys for Ansible
         column: 1  
+        command: echo "Placeholder"
+        button_info: |
+          This will create a root SSH keys and setup the root user for Ansible.
+      - name: Customize GNOME for root user
+        column: 3  
         command: echo "Placeholder"
         button_info: |
           Customizes GNOME for the root user (enables extensions)
@@ -39,12 +44,12 @@ menu_items:
         command: echo "Placeholder"
         button_info: |
           This button installs GNOME extensions. It reboots when completed
-      - name: Setup PXE Boot Server and Services
+      - name: Create PXE Boot Server
         column: 3
         command: echo "Placeholder"
         button_info: |
           This will setup PXE-Boot Services for Live booting Fedora Remix
-      - name: Remove Fedora Remix from Auto-Start
+      - name: Remove Tools from Auto-Start
         column: 3
         command: echo "Placeholder"
         button_info: |
@@ -68,8 +73,18 @@ menu_items:
         command: echo "Placeholder"
         button_info: |
           Customizes GNOME for current user.
+      - name: Enable GNOME Extensions
+        column: 2
+        command: echo "Placeholder"
+        button_info: |
+          Enables GNOME Shell Extensions for current user.
+      - name: Install VSCode Extensions
+        column: 2
+        command: echo "Placeholder"
+        button_info: |
+          Installs VSCode Extensions for the current user
       - name: Customize Ansible User Password
-        column: 3
+        column: 2
         command: echo "Placeholder"
         button_info: |
           Sets Ansible User Password
