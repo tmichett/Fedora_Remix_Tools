@@ -30,7 +30,7 @@ menu_items:
         button_info: |
           This will create a root SSH keys and setup the root user for Ansible.
       - name: Customize GNOME for root user
-        column: 3  
+        column: 2  
         command: echo "Placeholder"
         button_info: |
           Customizes GNOME for the root user (enables extensions)
@@ -61,10 +61,12 @@ menu_items:
     column: 2
     items:
       - name: Create User SSH Key and Prepare for Ansible
+        column: 1
         command: echo "Placeholder"
         button_info: |
           Creates SSH key for current user and prepares system for Ansible use.
       - name: Update Sudoers file for User
+        column: 1
         command: echo "Placeholder"
         button_info: |
           Updates Sudoers file for current user to not require a password.
@@ -79,12 +81,12 @@ menu_items:
         button_info: |
           Enables GNOME Shell Extensions for current user.
       - name: Install VSCode Extensions
-        column: 2
+        column: 3
         command: echo "Placeholder"
         button_info: |
           Installs VSCode Extensions for the current user
       - name: Customize Ansible User Password
-        column: 2
+        column: 3
         command: echo "Placeholder"
         button_info: |
           Sets Ansible User Password
