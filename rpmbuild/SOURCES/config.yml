@@ -59,6 +59,7 @@ menu_items:
 
   - name: Perform User-Level Operations
     column: 2
+    submenu_columns: 3
     items:
       - name: Create User SSH Key and Prepare for Ansible
         column: 1
