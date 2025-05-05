@@ -21,37 +21,37 @@ menu_items:
           Update Fedora System Packages Using DNF and reboots when completed.
       - name: Create Root Password/Allow SSH
         column: 1  
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/ssh_allow_root.sh
         button_info: |
           This will create a root password and allow SSH for the root user.
       - name: Create Root SSH Keys for Ansible
         column: 1  
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/create_ssh_key.sh
         button_info: |
           This will create a root SSH keys and setup the root user for Ansible.
       - name: Customize GNOME for root user
         column: 2  
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/customize_gnome.sh
         button_info: |
           Customizes GNOME for the root user (enables extensions)
       - name: Customize Grub Bootloader
         column: 2
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/customize_grub.sh
         button_info: |
           This will customize the GRUB boot loader menu and style.
       - name: Install GNOME Extensions (reboots)
         column: 2
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/deploy_gnome_extensions.sh
         button_info: |
           This button installs GNOME extensions. It reboots when completed
       - name: Create PXE Boot Server
         column: 3
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/create_pxe_server.sh
         button_info: |
           This will setup PXE-Boot Services for Live booting Fedora Remix
       - name: Remove Tools from Auto-Start
         column: 3
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/remove_yad_from_startup.sh
         button_info: |
           This will remove the Fedora Remix Tools from Autostart.
 
@@ -63,32 +63,32 @@ menu_items:
     items:
       - name: Create User SSH Key and Prepare for Ansible
         column: 1
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/create_ssh_key.sh
         button_info: |
           Creates SSH key for current user and prepares system for Ansible use.
       - name: Update Sudoers file for User
         column: 1
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/update_sudoers_nopw.sh
         button_info: |
           Updates Sudoers file for current user to not require a password.
       - name: Customize GNOME for User
         column: 2
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/customize_gnome.sh
         button_info: |
           Customizes GNOME for current user.
       - name: Enable GNOME Extensions
         column: 2
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/enable_gnome_extensions.sh
         button_info: |
           Enables GNOME Shell Extensions for current user.
       - name: Install VSCode Extensions
         column: 3
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/deploy_vscode_extensions.sh
         button_info: |
           Installs VSCode Extensions for the current user
       - name: Customize Ansible User Password
         column: 3
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/ansible-user_passwd.sh
         button_info: |
           Sets Ansible User Password
 
@@ -101,11 +101,11 @@ menu_items:
     items:
       - name: Fix Python Kickstart
         column: 1
-        command: echo "Placeholder"
+        command: /opt/FedoraRemix/scripts/fix_kickstart_python.sh
         button_info: |
           This will fix an issue with PyKickstart and URL preventing livecd-creator from working.
       - name: Create Fingerprint Services
         column: 2
-        command: echo "Placeholder"
+        command: sudo /opt/FedoraRemix/scripts/deploy_fprintd.sh
         button_info: |
-          This will enable the fingerprint services for users on selected Lenovo Thinkpads and Synaptic devices.
+          This will enable the fingerprint services for users on selected Lenovo Thinkpad and Synaptic devices.
