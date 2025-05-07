@@ -166,11 +166,10 @@ class OutputWindow(QDialog):
     def send_input(self):
         """Send input from the input field"""
         text = self.input_field.text()
-        if text:
-            self.input_sent.emit(text)
-            # Display the input in the terminal (user feedback)
-            self.output_terminal.append_output(f"> {text}\n", False)
-            self.input_field.clear()
+        self.input_sent.emit(text)
+        # Display the input in the terminal (user feedback)
+        self.output_terminal.append_output(f"> {text}\n", False)
+        self.input_field.clear()
     
     def set_input_enabled(self, enabled):
         """Enable or disable the input controls"""
@@ -711,7 +710,7 @@ class MenuApplication(QMainWindow):
     def send_input(self):
         """Send input from the main window's input field"""
         text = self.input_field.text()
-        if text and self.process_manager.is_running():
+        if self.process_manager.is_running():
             # Display the input in both terminals (user feedback)
             self.output_text.append_output(f"> {text}\n", False)
             self.output_window.output_terminal.append_output(f"> {text}\n", False)
