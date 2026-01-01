@@ -81,7 +81,7 @@ fi
 
 %files
 %defattr(-,root,root,-)
-/opt/FedoraRemixTools/
+%dir /opt/FedoraRemixTools/
 /opt/FedoraRemixTools/config.yml
 /opt/FedoraRemixTools/menu.py
 /opt/FedoraRemixTools/logo.png
