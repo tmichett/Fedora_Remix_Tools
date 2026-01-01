@@ -1,6 +1,6 @@
 %define name fedora_remix_tools
 %define version 1.0
-%define release 8
+%define release 9
 %define buildroot %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Summary: Fedora Remix Tools Application
@@ -13,11 +13,15 @@ BuildArch: noarch
 BuildRoot: %{buildroot}
 Requires: python3
 
+# Source tarball containing all application files
+Source0: %{name}-%{version}.tar.gz
+
 %description
 Fedora Remix Tools Application
 
 %prep
-# No preparation needed for this simple package
+# Extract the source tarball
+%setup -q -n %{name}-%{version}
 
 %build
 # No build process needed
@@ -28,20 +32,20 @@ mkdir -p $RPM_BUILD_ROOT/opt/FedoraRemixTools
 mkdir -p $RPM_BUILD_ROOT/usr/share/applications
 mkdir -p $RPM_BUILD_ROOT/usr/share/gnome/autostart
 
-# Copy application files to the buildroot
-cp -p %{_sourcedir}/config.yml $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p %{_sourcedir}/menu.py $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p %{_sourcedir}/logo.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p %{_sourcedir}/smallicon.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p %{_sourcedir}/fedora_remix_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
-cp -p %{_sourcedir}/trust-desktop-icons.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+# Copy application files from extracted source to the buildroot
+cp -p config.yml $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p menu.py $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p logo.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p smallicon.png $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p fedora_remix_tools.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
+cp -p trust-desktop-icons.sh $RPM_BUILD_ROOT/opt/FedoraRemixTools/
 
 # Copy desktop file to system locations only
 # Desktop shortcut for liveuser is created in %post to avoid user/group dependency
-cp -p %{_sourcedir}/Fedora_Remix_Tools.desktop $RPM_BUILD_ROOT/usr/share/applications/
+cp -p Fedora_Remix_Tools.desktop $RPM_BUILD_ROOT/usr/share/applications/
 
 # Autostart entry to trust desktop icons on first login (runs in user session)
-cp -p %{_sourcedir}/fedora-remix-tools-trust.desktop $RPM_BUILD_ROOT/usr/share/gnome/autostart/
+cp -p fedora-remix-tools-trust.desktop $RPM_BUILD_ROOT/usr/share/gnome/autostart/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,7 +93,8 @@ fi
 # Desktop shortcut is created dynamically in %post to avoid liveuser dependency
 
 %changelog
-* Thu Jan 1 2026 Fedora Remix Tools Build <tmichett@redhat.com> - 1.0-8
+* Thu Jan 1 2026 Fedora Remix Tools Build <tmichett@redhat.com> - 1.0-9
+- Convert to tarball-based source for COPR compatibility
 - Fix RPM dependency on liveuser by creating desktop shortcut in %post  
 - Use dbus-launch/dbus-run-session to set trusted metadata from CLI
 - Fix desktop shortcut to be trusted/launchable without manual "Allow Launching"
