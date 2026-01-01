@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Fedora Remix Tools Trust Setup
+Exec=/opt/FedoraRemixTools/trust-desktop-icons.sh
+Hidden=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Applications
+
