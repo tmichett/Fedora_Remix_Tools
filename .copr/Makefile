@@ -20,3 +20,4 @@ srpm:
 		--define "_sourcedir $(CURDIR)" \
 		--define "_srcrpmdir $(outdir)"
 
+
